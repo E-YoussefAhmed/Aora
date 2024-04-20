@@ -10,6 +10,7 @@ import CustomButton from "../../components/CustomButton";
 import { useGlobalContext } from "../../context/GlobalProvider";
 
 const SignUp = () => {
+  const { setUser, setIsLoggedIn } = useGlobalContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
     username: "",
@@ -18,7 +19,6 @@ const SignUp = () => {
   });
 
   const submit = async () => {
-    const { setUser, setIsLoggedIn } = useGlobalContext();
     if (!form.username || !form.email || !form.password) {
       Alert.alert("Error", "Please fill in all the fields");
       return;
